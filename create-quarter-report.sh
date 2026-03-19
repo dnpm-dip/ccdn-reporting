@@ -15,11 +15,9 @@ declare -A end=( ["1"]="03-31" ["2"]="06-30" ["3"]="09-30" ["4"]="12-31" )
 
 request(){
 
-  certDir=/opt/mtb-central-data-node/certs
-
   curl -k \
-    --cert "${certDir}/dnpm-client-cert.pem" \
-    --key "${certDir}/dnpm-client-key.pem" \
+    --cert "$CLIENT_CERT_FILE" \
+    --key "$CLIENT_KEY_FILE" \
     --connect-timeout 5 \
     --max-time 20 \
     --fail --silent --show-error \
