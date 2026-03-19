@@ -162,12 +162,11 @@ createAppendix2(){
             coverageType=$(_jq '.healthInsuranceType')
             diseaseType=${diseaseTypes[$(_jq '.useCase')]}
             libraryType=${libraryTypes[$(_jq '.sequencingType')]:-none}
-	    seqType=$(_jq '(.sequenceTypes? // []) as $arr | if ($arr | length) > 0 then ($arr | join(";")) else "N/A" end')
+            seqType=$(_jq '(.sequenceTypes? // []) as $arr | if ($arr | length) > 0 then ($arr | join(";")) else "N/A" end')
             qcPassed="yes"  # Invalid submissions are denied upon upload in DIP, so any created SubmissionReport implies passed QC
-	    has_mv_consent=$(_jq '.consentStatus["mv-consent"]? // false | if . then "yes" else "no" end')
-	    has_research_consent=$(_jq '.consentStatus["research-consent"]? // false | if . then "yes" else "no" end')
-	    reasonResearchConsentMissing=$(_jq '.reasonResearchConsentMissing? // "N/A"')
-
+            has_mv_consent=$(_jq '.consentStatus["mv-consent"]? // false | if . then "yes" else "no" end')
+            has_research_consent=$(_jq '.consentStatus["research-consent"]? // false | if . then "yes" else "no" end')
+            reasonResearchConsentMissing=$(_jq '.reasonResearchConsentMissing? // "N/A"')
           
             echo -e "$kdk\t$quarter\t$year\t$submitter\t$submissionType\t$coverageType\t$diseaseType\t$seqType\t$libraryType\t$qcPassed\t$has_mv_consent\t$has_research_consent\t$reasonResearchConsentMissing" >> $appendixFile
           
