@@ -4,7 +4,7 @@ declare -A libraryTypes=( ["panel"]="panel" ["exome"]="wes" ["genome-short-read"
 
 declare -A diseaseTypes=( ["MTB"]="oncological" ["RD"]="rare" )
 
-declare -A submitterIds=( ["Charité"]="261101015" ["KUM"]="260914050" ["MHH"]="260320597" ["MRI"]="260913195" ["UM"]="260730161" ["UME"]="260510381" ["UMG"]="260310378" ["UKA"]="260530012" ["UKB"]="260530103" ["UKD"]="260510018" ["UKDD"]="261401030" ["UKE"]="260200013" ["UKER"]="260950567" ["UKFR"]="260832299" ["UKHD"]="260820466" ["UKJ"]="261600736" ["UKK"]="260530283" ["UKL"]="261401052" ["UKM"]="260550131" ["UKMR"]="260620431" ["UKR"]="260930608" ["UKSH"]="260102343" ["UKT"]="260840108" ["UKU"]="260840200" ["UKW"]="260960079" )
+declare -A submitterIds=( ["Charité"]="261101015" ["KKB"]="260590071" ["KUM"]="260914050" ["MHH"]="260320597" ["MRI"]="260913195" ["UM"]="260730161" ["UME"]="260510381" ["UMG"]="260310378" ["UMH"]="261500702" ["UKA"]="260530012" ["UKB"]="260530103" ["UKD"]="260510018" ["UKDD"]="261401030" ["UKE"]="260200013" ["UKER"]="260950567" ["UKFR"]="260832299" ["UKHD"]="260820466" ["UKJ"]="261600736" ["UKK"]="260530283" ["UKL"]="261401052" ["UKM"]="260550131" ["UKMR"]="260620431" ["UKR"]="260930608" ["UKSH"]="260102343" ["UKT"]="260840108" ["UKU"]="260840200" ["UKW"]="260960079" )
 
 declare -A kdkIds=( ["MTB"]="KDKTUE005" ["RD"]="KDKTUE002" )
 
@@ -29,7 +29,7 @@ request(){
 
 
 if [ -z "$1" ]; then
-  csvSites="Charite,KUM,MHH,MRI,UKA,UKB,UKD,UKDD,UKE,UKER,UKFR,UKHD,UKJ,UKK,UKL,UKM,UKMR,UKR,UKSH,UKT,UKU,UKW,UM,UME,UMG"
+  csvSites="Charite,KKB,KUM,MHH,MRI,UKA,UKB,UKD,UKDD,UKE,UKER,UKFR,UKHD,UKJ,UKK,UKL,UKM,UKMR,UKR,UKSH,UKT,UKU,UKW,UM,UME,UMG,UMH"
 else
   csvSites=$1
 fi
@@ -48,8 +48,8 @@ IFS=',' read -ra sites <<< "$csvSites"
 
 useCases=("MTB" "RD")
 
-year=2025
-quarter=4
+year=2026
+quarter=2
 
 
 outDir="Q${quarter}_${year}"
